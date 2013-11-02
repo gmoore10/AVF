@@ -16,6 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+/* Author: Garrett More
+   Class: AVF 1311
+*/
+
 var app = {
     // Application Constructor
     initialize: function() {
