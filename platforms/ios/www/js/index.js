@@ -61,7 +61,10 @@ $(document).ready(function () {
         youtube.GetTopVideos();
     })
 
-    //$("button [data-value=Back]")
+    $("button").on("click", function () {
+        $(".mainPage").show();
+        $(".app").not(".mainPage").hide();
+    })
 })
 
 var instagram = {

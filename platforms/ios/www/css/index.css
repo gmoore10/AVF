@@ -17,6 +17,14 @@
 * under the License.
 */
 
+#json1 {
+    background-color: #4CF3F3;
+}
+
+#json2 {
+    background-color: #4EF34C;
+}
+
 @media only screen and (min-width: 768px) /* and (max-width: 1024px) /*and (orientation: landscape) /*and (-webkit-min-device-pixel-ratio: 2) */ 
 { 
     .app
