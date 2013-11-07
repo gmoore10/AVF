@@ -49,14 +49,19 @@ var app = {
 //REMOVE WHEN TESTING APP ON IPAD
 $(document).ready(function () {
     instagram.GetMostRecent();
-    youtube.GetTopVideos();
 
     $("#json1").on("click", function () {
         $(".mainPage").hide();
         $(".json1").show();
     })
 
-    $("button [data-value=Back]")
+    $("#json2").on("click", function () {
+        $(".mainPage").hide();
+        $(".json2").show();
+        youtube.GetTopVideos();
+    })
+
+    //$("button [data-value=Back]")
 })
 
 var instagram = {
@@ -105,10 +110,35 @@ var youtube = {
                     }
                 })
                 console.log(youtubeData);
+                youtube.GenerateChart(youtubeData);
             }
         });
     },
-    GenerateChart: function () {
+    GenerateChart: function (youtubeData) {
+        $("#youtubeView").kendoChart({
+            title: {
+                text: "Youtube Top Videos"
+            },
+            dataSource: youtubeData,
+            legend: {
+                visible: false
+            },
+            seriesDefaults: {
+                type: "column"
+            },
+            series: [
+                { field: "viewCount" }
+            ],
+            tooltip: {
+                visible: true,
+                template: '#= dataItem.videoTitle # <br />  Total Views: #= value #<br /><img src="#= dataItem.thumbnail #" />'
+            }
+        });
 
+        $(window).resize(function () {
+            var youtubeChart = $("#youtubeView").data("kendoChart");
+            youtubeChart.refresh();
+
+        });
     }
 }
