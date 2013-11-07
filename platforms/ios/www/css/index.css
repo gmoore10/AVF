@@ -24,6 +24,12 @@
         width: device-width;
     }
 
+    .instagramImage
+    {
+        float: left;
+        margin-left: 4px;
+    }
+
     .left
     {
         width: 30%;
@@ -58,9 +64,14 @@
     }
     .demoBoxCover
     {
+        cursor: pointer;
+        font-family: Verdana;
+        font-weight: bold;
         position: relative;
         width: 250px;
-        height: 60px;
+        height: 40px;
+        padding-top: 20px;
+        text-align: center;
         border: 5px solid #626262;
         background-color: white;
     }
@@ -83,6 +94,12 @@
     .app
     {
         width: device-width;
+    }
+
+    .instagramImage
+    {
+        float: left;
+        margin-left: 4px;
     }
 
     .left
@@ -119,9 +136,15 @@
     }
     .demoBoxCover
     {
+        cursor: hand;
+        font-family: Verdana;
+        font-weight: bold;
         position: relative;
+        width: 250px;
+        height: 40px;
         width: 100%;
-        height: 60px;
+        padding-top: 20px;
+        text-align: center;
         border: 5px solid #626262;
         background-color: white;
     }
