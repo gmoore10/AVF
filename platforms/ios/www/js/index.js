@@ -39,8 +39,27 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        instagram.GetMostRecent();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
     }
 };
+
+//REMOVE WHEN TESTING APP ON IPAD
+$(document).ready(function () {
+    instagram.GetMostRecent();
+})
+
+var instagram = {
+    GetMostRecent: function()
+    {
+        $.ajax({
+            url: "https://api.instagram.com/v1/tags/snow/media/recent?access_token=651172266.f59def8.c3ab4d9d5626437f83dc92e6961856a6",
+            dataType: "jsonp",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    }
+}
