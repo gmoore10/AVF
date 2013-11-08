@@ -40,32 +40,27 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         instagram.GetMostRecent();
+
+        $("#json1").on("click", function () {
+            $(".mainPage").hide();
+            $(".json1").show();
+        })
+
+        $("#json2").on("click", function () {
+            $(".mainPage").hide();
+            $(".json2").show();
+            youtube.GetTopVideos();
+        })
+
+        $("button").on("click", function () {
+            $(".mainPage").show();
+            $(".app").not(".mainPage").hide();
+        })
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
     }
 };
-
-//REMOVE WHEN TESTING APP ON IPAD
-$(document).ready(function () {
-    instagram.GetMostRecent();
-
-    $("#json1").on("click", function () {
-        $(".mainPage").hide();
-        $(".json1").show();
-    })
-
-    $("#json2").on("click", function () {
-        $(".mainPage").hide();
-        $(".json2").show();
-        youtube.GetTopVideos();
-    })
-
-    $("button").on("click", function () {
-        $(".mainPage").show();
-        $(".app").not(".mainPage").hide();
-    })
-})
 
 var instagram = {
     GetMostRecent: function() {
@@ -77,13 +72,13 @@ var instagram = {
                     //$.each(value, function (index2, value2) {
                     //    console.log("EACH OF VALUE: " + value2);
                     //})
-                    if (index === "data") {
-                        for (i = 0; i < value.length; i++) {
-                            console.log(value[i].images);
-                            $("#instagramView").append('<div class="instagramImage"><img src="' + value[i].images.thumbnail.url + '" /></div>');
-                        }
+                if (index === "data") {
+                    for (i = 0; i < value.length; i++) {
+                        console.log(value[i].images);
+                        $("#instagramView").append('<div class="instagramImage"><img src="' + value[i].images.thumbnail.url + '" /></div>');
                     }
-                })
+                }
+            })
             }
         });
     }
@@ -116,32 +111,32 @@ var youtube = {
                 youtube.GenerateChart(youtubeData);
             }
         });
-    },
-    GenerateChart: function (youtubeData) {
-        $("#youtubeView").kendoChart({
-            title: {
-                text: "Youtube Top Videos"
-            },
-            dataSource: youtubeData,
-            legend: {
-                visible: false
-            },
-            seriesDefaults: {
-                type: "column"
-            },
-            series: [
-                { field: "viewCount" }
-            ],
-            tooltip: {
-                visible: true,
-                template: '#= dataItem.videoTitle # <br />  Total Views: #= value #<br /><img src="#= dataItem.thumbnail #" />'
-            }
-        });
+},
+GenerateChart: function (youtubeData) {
+    $("#youtubeView").kendoChart({
+        title: {
+            text: "Youtube Top Videos"
+        },
+        dataSource: youtubeData,
+        legend: {
+            visible: false
+        },
+        seriesDefaults: {
+            type: "column"
+        },
+        series: [
+        { field: "viewCount" }
+        ],
+        tooltip: {
+            visible: true,
+            template: '#= dataItem.videoTitle # <br />  Total Views: #= value #<br /><img src="#= dataItem.thumbnail #" />'
+        }
+    });
 
-        $(window).resize(function () {
-            var youtubeChart = $("#youtubeView").data("kendoChart");
-            youtubeChart.refresh();
+    $(window).resize(function () {
+        var youtubeChart = $("#youtubeView").data("kendoChart");
+        youtubeChart.refresh();
 
-        });
-    }
+    });
+}
 }
