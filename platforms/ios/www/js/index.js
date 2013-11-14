@@ -104,7 +104,7 @@ var nativeFeatures = {
         },
         getSuccess: function(contacts) {
             //Success
-            navigator.notification.alert("Contacts access succeeded! Count: " + contacts.length, nativeFeatures.notifications.notification1Callback(), "Woop Woop!", "Got it!");
+            //navigator.notification.alert("Contacts access succeeded! Count: " + contacts.length, nativeFeatures.notifications.notification1Callback(), "Woop Woop!", "Got it!");
             for (i = 0; i < contacts.length; i++)
             {
                 $("#contactsView").append(contacts[i].name.formatted + "<br />");
@@ -122,7 +122,7 @@ var nativeFeatures = {
         },
         getSuccess: function(location) {
             //Success
-            navigator.notification.alert("Geolocation access succeeded! Count: " + location.length, nativeFeatures.notifications.notification1Callback(), "Woop Woop!", "Got it!");
+            //navigator.notification.alert("Geolocation access succeeded! Count: " + location.length, nativeFeatures.notifications.notification1Callback(), "Woop Woop!", "Got it!");
                 $("#geolocationView").append("Lattitude: " + location.coords.latitude + " Longitude: " + location.coords.longitude + "<br />");
         },
         getFailed: function () {
