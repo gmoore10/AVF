@@ -34,23 +34,23 @@ under the License.
                 <h3>Native Features</h3>
                 <div class="avfDemoLinks">
                     <div class="demoBox">
-                        <div class="demoBoxCover">
-                            Camera
+                        <div id="native1" class="demoBoxCover">
+                            Notifications
                         </div>
                     </div>
                 </div>
 
                 <div class="avfDemoLinks">
                     <div class="demoBox">
-                        <div class="demoBoxCover">
-                            Media
+                        <div id="native2" class="demoBoxCover">
+                            Contacts
                         </div>
                     </div>
                 </div>
 
                 <div class="avfDemoLinks">
                     <div class="demoBox">
-                        <div class="demoBoxCover">
+                        <div id="native3" class="demoBoxCover">
                             Geolocation
                         </div>
                     </div>
@@ -58,16 +58,8 @@ under the License.
 
                 <div class="avfDemoLinks">
                     <div class="demoBox">
-                        <div class="demoBoxCover">
-                            Compass
-                        </div>
-                    </div>
-                </div>
-
-                <div class="avfDemoLinks">
-                    <div class="demoBox">
-                        <div class="demoBoxCover">
-                            Contacts
+                        <div id="native4" class="demoBoxCover">
+                            Network
                         </div>
                     </div>
                 </div>
@@ -112,6 +104,30 @@ under the License.
             </div>
         </div>
 
+        <div class="app native1" style="display: none;">
+            <button type="button" data-value="Back">Back</button>
+            <div id="notificationsView">
+                Hello!
+            </div>
+        </div>
+
+        <div class="app native2" style="display: none;">
+            <button type="button" data-value="Back">Back</button>
+            <div id="contactsView">
+                Contacts: <br /><br />
+            </div>
+        </div>
+
+        <div class="app native3" style="display: none;">
+            <button type="button" data-value="Back">Back</button>
+            <div id="geolocationView"></div>
+        </div>
+
+        <div class="app native4" style="display: none;">
+            <button type="button" data-value="Back">Back</button>
+            <div id="networkView"></div>
+        </div>
+
         <div class="app json1" style="display: none;">
             <button type="button" data-value="Back">Back</button>
             <div id="instagramView"></div>
@@ -122,6 +138,7 @@ under the License.
             <div id="youtubeView"></div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
+        <!--<script type="text/javascript" src="cordova.js"></script> -->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/kendo.all.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

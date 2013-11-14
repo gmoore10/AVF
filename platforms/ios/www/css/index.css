@@ -25,6 +25,26 @@
     background-color: #4EF34C;
 }
 
+#native1 {
+    background-color: #B8FF91;
+}
+
+#native2 {
+    background-color: #E8C57D;
+}
+
+#native3 {
+    background-color: #FF8999;
+}
+
+#native4 {
+    background-color: #7B71E8;
+}
+
+h1, body p {
+    font-family: Verdana, sans-serif;
+}
+
 @media only screen and (min-width: 768px) /* and (max-width: 1024px) /*and (orientation: landscape) /*and (-webkit-min-device-pixel-ratio: 2) */ 
 { 
     .app
