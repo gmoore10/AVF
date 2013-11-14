@@ -52,6 +52,29 @@ var app = {
             youtube.GetTopVideos();
         })
 
+        $("#native1").on("click", function () {
+            $(".mainPage").hide();
+            $(".native1").show();
+            nativeFeatures.notifications.notification1();
+        })
+
+        $("#native2").on("click", function () {
+            $(".mainPage").hide();
+            $(".native2").show();
+            nativeFeatures.contacts.getContacts();
+        })
+
+        $("#native3").on("click", function () {
+            $(".mainPage").hide();
+            $(".native3").show();
+            nativeFeatures.geolocation.getLocation();
+        })
+
+        $("#native4").on("click", function () {
+            $(".mainPage").hide();
+            $(".native4").show();
+        })
+
         $("button").on("click", function () {
             $(".mainPage").show();
             $(".app").not(".mainPage").hide();
@@ -59,6 +82,53 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+    }
+};
+
+var nativeFeatures = {
+    notifications: {
+        notification1: function() {
+            navigator.notification.alert("Message!", nativeFeatures.notifications.notification1Callback(), "Woop Woop!", "Got it!");
+        },
+        notification1Callback: function() {
+            //Do something
+        }
+    },
+    contacts: {
+        getContacts: function()
+        {
+            //Get all contacts
+            navigator.contacts.find(["*"], nativeFeatures.contacts.getSuccess, nativeFeatures.contacts.getFailed(), {filter: "", multiple: true });
+;
+        },
+        getSuccess: function(contacts) {
+            //Success
+            navigator.notification.alert("Contacts access succeeded! Count: " + contacts.length, nativeFeatures.notifications.notification1Callback(), "Woop Woop!", "Got it!");
+            for (i = 0; i < contacts.length; i++)
+            {
+                $("#contactsView").append(contacts[i].name.formatted + "<br />");
+            }
+        },
+        getFailed: function () {
+            //Failed
+        }
+
+    },
+    geolocation: {
+        getLocation: function() {
+            navigator.geolocation.getCurrentPosition(nativeFeatures.geolocation.getSuccess, nativeFeatures.geolocation.getFailed);
+
+        },
+        getSuccess: function(location) {
+            //Success
+            navigator.notification.alert("Geolocation access succeeded! Count: " + location.length, nativeFeatures.notifications.notification1Callback(), "Woop Woop!", "Got it!");
+                $("#geolocationView").append("Lattitude: " + location.coords.latitude + " Longitude: " + location.coords.longitude + "<br />");
+        },
+        getFailed: function () {
+            //Failed
+            navigator.notification.alert("Geolocation access failed!", function() {}, "Woop Woop!", "Got it!");
+
+        }
     }
 };
 

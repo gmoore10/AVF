@@ -45,6 +45,10 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 		B7E362A104FF47798EB14865 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3957505AE2B2414AAECAF85C /* CDVLocation.m */; };
+		746BE9F0D4F5407AACCAE5A2 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFAEE42E6C14C56B925DBFC /* CDVNotification.m */; };
+		FF2358AF4E914DF597E1950F /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89A26EA2A9B24BD39A1251D1 /* CDVNotification.bundle */; };
+		259E0F141E194B1F89165625 /* CDVContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = E879A27573C94C0481014C94 /* CDVContacts.m */; };
+		5F8D2F7FE5D04EC6BDA08FCD /* CDVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D7831585E54A9882587743 /* CDVContact.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +116,13 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = avfApp/config.xml; sourceTree = "<group>"; };
 		3957505AE2B2414AAECAF85C /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "org.apache.cordova.geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		C5A654013AB24B12807DB3B2 /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "org.apache.cordova.geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FFFAEE42E6C14C56B925DBFC /* CDVNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVNotification.m"; path = "org.apache.cordova.dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		8A0A54BB674D4FDEBF011D7B /* CDVNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVNotification.h"; path = "org.apache.cordova.dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		89A26EA2A9B24BD39A1251D1 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; };
+		E879A27573C94C0481014C94 /* CDVContacts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVContacts.m"; path = "org.apache.cordova.contacts/CDVContacts.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		C4D7831585E54A9882587743 /* CDVContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVContact.m"; path = "org.apache.cordova.contacts/CDVContact.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		AC06B3D5269149158B71FBA1 /* CDVContacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVContacts.h"; path = "org.apache.cordova.contacts/CDVContacts.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		80FB4628513449808D129D05 /* CDVContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVContact.h"; path = "org.apache.cordova.contacts/CDVContact.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +227,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* avfApp-Info.plist */,
+				89A26EA2A9B24BD39A1251D1 /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = avfApp/Resources;
@@ -259,6 +271,12 @@
 			children = (
 				3957505AE2B2414AAECAF85C /* CDVLocation.m */,
 				C5A654013AB24B12807DB3B2 /* CDVLocation.h */,
+				FFFAEE42E6C14C56B925DBFC /* CDVNotification.m */,
+				8A0A54BB674D4FDEBF011D7B /* CDVNotification.h */,
+				E879A27573C94C0481014C94 /* CDVContacts.m */,
+				C4D7831585E54A9882587743 /* CDVContact.m */,
+				AC06B3D5269149158B71FBA1 /* CDVContacts.h */,
+				80FB4628513449808D129D05 /* CDVContact.h */,
 			);
 			name = Plugins;
 			path = avfApp/Plugins;
@@ -396,6 +414,7 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				FF2358AF4E914DF597E1950F /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +446,9 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				B7E362A104FF47798EB14865 /* CDVLocation.m in Sources */,
+				746BE9F0D4F5407AACCAE5A2 /* CDVNotification.m in Sources */,
+				259E0F141E194B1F89165625 /* CDVContacts.m in Sources */,
+				5F8D2F7FE5D04EC6BDA08FCD /* CDVContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
