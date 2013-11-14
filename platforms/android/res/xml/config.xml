@@ -39,4 +39,7 @@
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
 </widget>

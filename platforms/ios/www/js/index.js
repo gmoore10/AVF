@@ -73,6 +73,7 @@ var app = {
         $("#native4").on("click", function () {
             $(".mainPage").hide();
             $(".native4").show();
+            nativeFeatures.network.getNetworkInfo();
         })
 
         $("button").on("click", function () {
@@ -128,6 +129,43 @@ var nativeFeatures = {
             //Failed
             navigator.notification.alert("Geolocation access failed!", function() {}, "Woop Woop!", "Got it!");
 
+        }
+    },
+    network: {
+        getNetworkInfo: function() {
+            var networkStatus = navigator.connection.type;
+
+
+            $("#networkView").empty();
+            switch(networkStatus)
+            {
+                case "wifi":
+                    $("#networkView").append("Network Status: WiFi");
+                    break;
+                case "unknown":
+                    $("#networkView").append("Network Status: Unknown");
+                    break;
+                case "ethernet":
+                    $("#networkView").append("Network Status: Ethernet");
+                    break;
+                case "cell_2g":
+                    $("#networkView").append("Network Status: 2G Cellular");
+                    break;
+                case "cell_3g":
+                    $("#networkView").append("Network Status: 3G Cellular");
+                    break;
+                case "cell_4g":
+                    $("#networkView").append("Network Status: 4G Cellular");
+                    break;
+                case "cell":
+                    $("#networkView").append("Network Status: Cellular (Unknown Type)");
+                    break;
+                case "none":
+                    $("#networkView").append("Network Status: None");
+                    break;
+                default: 
+                    alert("Catastrophic Error.");
+            }
         }
     }
 };
