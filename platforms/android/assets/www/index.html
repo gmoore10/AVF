@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
@@ -18,17 +18,18 @@ specific language governing permissions and limitations
 under the License.
 -->
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="format-detection" content="telephone=no"/>
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
-        <link href="css/index.css" rel="stylesheet"/>
-        <link href="css/kendo.common.min.css" rel="stylesheet" />
-        <title>AVF Demo App</title>
-    </head>
-    <body>
-        <h1>AVF Demo App</h1>
-        <p>Garrett Moore - AVF 1311</p>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+    <link href="css/index.css" rel="stylesheet"/>
+    <link href="css/kendo.common.min.css" rel="stylesheet" />
+    <title>AVF Demo App</title>
+</head>
+<body>
+    <h1>AVF Demo App</h1>
+    <p>Garrett Moore - AVF 1311</p>
+    <section>
         <div class="app mainPage">
             <div class="left">
                 <h3>Native Features</h3>
@@ -82,6 +83,22 @@ under the License.
                         </div>
                     </div>
                 </div>
+
+                <div class="avfDemoLinks">
+                    <div class="demoBox">
+                        <div id="mashup1" class="demoBoxCover">
+                            Instagram and Network
+                        </div>
+                    </div>
+                </div>
+
+                <div class="avfDemoLinks">
+                    <div class="demoBox">
+                        <div id="mashup2" class="demoBoxCover">
+                            Instagram and Geolocation
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="right">
@@ -89,7 +106,7 @@ under the License.
                 <div class="avfDemoLinks">
                     <div class="demoBox">
                         <div class="demoBoxCover">
-                            Reference 1
+                            <a href="https://play.google.com/store/apps/details?id=es.codefactory.android.app.ma.vocalizerenudemo&hl=en">Vocalization App</a>
                         </div>
                     </div>
                 </div>
@@ -103,47 +120,76 @@ under the License.
                 </div>
             </div>
         </div>
+    </section>
 
+    <section>
         <div class="app native1" style="display: none;">
             <button type="button" data-value="Back">Back</button>
             <div id="notificationsView">
                 Hello!
             </div>
         </div>
-
+    </section>
+    <section>
         <div class="app native2" style="display: none;">
             <button type="button" data-value="Back">Back</button>
             <div id="contactsView">
                 Contacts: <br /><br />
             </div>
         </div>
+    </section>
+    <section>
 
         <div class="app native3" style="display: none;">
             <button type="button" data-value="Back">Back</button>
             <div id="geolocationView"></div>
         </div>
+    </section>
+    <section>
 
         <div class="app native4" style="display: none;">
             <button type="button" data-value="Back">Back</button>
             <div id="networkView"></div>
         </div>
+    </section>
+    <section>
 
         <div class="app json1" style="display: none;">
             <button type="button" data-value="Back">Back</button>
             <div id="instagramView"></div>
         </div>
+    </section>
+    <section>
 
         <div class="app json2" style="display: none;">
             <button type="button" data-value="Back">Back</button>
             <div id="youtubeView"></div>
         </div>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <!--<script type="text/javascript" src="cordova.js"></script> -->
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/kendo.all.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+    </section>
+
+    <section>
+
+        <div class="app mashup1" style="display: none;">
+            <button type="button" data-value="Back">Back</button>
+            <div id="mashup1View"></div>
+        </div>
+    </section>
+
+    <section>
+
+        <div class="app mashup2" style="display: none;">
+            <button type="button" data-value="Back">Back</button>
+            <div id="mashup2View"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="phonegap.js"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script> -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/kendo.all.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    app.initialize();
+    </script>
+</body>
 </html>
