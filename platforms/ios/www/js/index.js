@@ -76,6 +76,18 @@ var app = {
             nativeFeatures.network.getNetworkInfo();
         })
 
+        $("#mashup1").on("click", function () {
+            $(".mainPage").hide();
+            $(".mashup1").show();
+            mashups.mashup1();
+        })
+
+        $("#mashup2").on("click", function () {
+            $(".mainPage").hide();
+            $(".mashup2").show();
+            mashups.mashup2.getLocation();
+        })
+
         $("button").on("click", function () {
             $(".mainPage").show();
             $(".app").not(".mainPage").hide();
@@ -85,6 +97,62 @@ var app = {
     receivedEvent: function(id) {
     }
 };
+
+var mashups = {
+    mashup1: function() {
+        var networkStatus = nativeFeatures.network.getNetworkInfo();
+
+        $.ajax({
+            url: "https://api.instagram.com/v1/tags/snow/media/recent?client_id=ba055438d6494230b8425f1b611b4e74",
+            dataType: "jsonp",
+            success: function (data) {
+                $.each(data, function (index, value) {
+                    if (index === "data") {
+                        for (i = 0; i < value.length; i++) {
+                            console.log(value[i].images);
+                            if(networkStatus === "wifi")
+                            {
+                                $("#mashup1View").append('<div class="instagramImage"><img src="' + value[i].images.thumbnail.url + '" /></div>');
+                            }
+                            else {
+                                $("#mashup1View").append('<div class="instagramImage"><a href"' + value[i].images.thumbnail.url + '">' + value[i].caption.text + '</a></div>');
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+    },
+    mashup2: {
+        getLocation: function() {
+            navigator.geolocation.getCurrentPosition(mashups.mashup2.getSuccess, mashups.mashup2.getFailed);
+        },
+        getSuccess: function(location) {
+            //Success
+            $.ajax({
+            url: "https://api.instagram.com/v1/media/search?lat=" + location.coords.latitude + "&lng=" + location.coords.longitude + "&distance=5000&client_id=ba055438d6494230b8425f1b611b4e74",
+            dataType: "jsonp",
+            success: function (data) {
+                $("#mashup2View").empty();
+                $("#mashup2View").append("Images taken within roughly 1 mile of your location.<br />");
+                $.each(data, function (index, value) {
+                    if (index === "data") {
+                        for (i = 0; i < value.length; i++) {
+                            console.log(value[i].images);
+                            $("#mashup2View").append('<div class="instagramImage"><img src="' + value[i].images.thumbnail.url + '" /></div>');
+                        }
+                    }
+                });
+            }
+            });
+        },
+        getFailed: function () {
+            //Failed
+            navigator.notification.alert("Geolocation access failed!", function() {}, "Geolocation Issue!", "Got it!");
+        }
+    }
+}
 
 var nativeFeatures = {
     notifications: {
@@ -100,7 +168,6 @@ var nativeFeatures = {
         {
             //Get all contacts
             navigator.contacts.find(["*"], nativeFeatures.contacts.getSuccess, nativeFeatures.contacts.getFailed(), {filter: "", multiple: true });
-;
         },
         getSuccess: function(contacts) {
             //Success
@@ -118,7 +185,6 @@ var nativeFeatures = {
     geolocation: {
         getLocation: function() {
             navigator.geolocation.getCurrentPosition(nativeFeatures.geolocation.getSuccess, nativeFeatures.geolocation.getFailed);
-
         },
         getSuccess: function(location) {
             //Success
@@ -128,7 +194,6 @@ var nativeFeatures = {
         getFailed: function () {
             //Failed
             navigator.notification.alert("Geolocation access failed!", function() {}, "Woop Woop!", "Got it!");
-
         }
     },
     network: {
@@ -166,6 +231,8 @@ var nativeFeatures = {
                 default: 
                     alert("Catastrophic Error.");
             }
+
+            return networkStatus;
         }
     }
 };
@@ -177,16 +244,13 @@ var instagram = {
             dataType: "jsonp",
             success: function (data) {
                 $.each(data, function (index, value) {
-                    //$.each(value, function (index2, value2) {
-                    //    console.log("EACH OF VALUE: " + value2);
-                    //})
-                if (index === "data") {
-                    for (i = 0; i < value.length; i++) {
-                        console.log(value[i].images);
-                        $("#instagramView").append('<div class="instagramImage"><img src="' + value[i].images.thumbnail.url + '" /></div>');
+                    if (index === "data") {
+                        for (i = 0; i < value.length; i++) {
+                            console.log(value[i].images);
+                            $("#instagramView").append('<div class="instagramImage"><img src="' + value[i].images.thumbnail.url + '" /></div>');
+                        }
                     }
-                }
-            })
+                });
             }
         });
     }
